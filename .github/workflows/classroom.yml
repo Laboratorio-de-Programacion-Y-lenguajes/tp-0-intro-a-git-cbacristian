@@ -1,0 +1,37 @@
+name: Validar TP0
+
+# Se ejecuta cada vez que el alumno hace un push a su rama o actualiza el Pull Request
+on:
+  push:
+    branches: [ "main", "feature-**" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  verificar-codigo:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Trae el código del repositorio del alumno
+    - name: Checkout del código
+      uses: actions/checkout@v4
+
+    # 2. Configura el entorno exacto que pedimos en la materia
+    - name: Configurar Python 3.13
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+
+    # 3. Prueba de Fuego: Ejecutar el script
+    # Fallará si hay errores de indentación, sintaxis o marcas de conflictos de Git mal resueltas.
+    - name: Ejecutar glosario.py
+      run: python glosario.py
+
+    # 4. (Opcional) Verificación estricta: Comprobar que no existe la función de ejemplo original
+    # Esto asegura que el alumno haya borrado/modificado el código base como se pedía.
+    - name: Verificar que se modificó la plantilla
+      run: |
+        if grep -q "agregar_definicion_alumno" glosario.py; then
+          echo "Error: Todavía existe la función de ejemplo 'agregar_definicion_alumno'. ¡Tenías que renombrarla!"
+          exit 1
+        fi
