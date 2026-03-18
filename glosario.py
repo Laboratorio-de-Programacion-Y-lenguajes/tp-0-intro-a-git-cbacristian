@@ -38,9 +38,6 @@ def glosario_inicial():
 
 
 def definicion_orm():
-    """
-    EJEMPLO: El alumno debe renombrar esta función y completar su término.
-    """
     termino = "ORM"  # Reemplazar con el término asignado o elegido
     definicion = "Object-Relational Mapping. Técnica para convertir datos entre sistemas incompatibles usando OOP."
     print(f"[NUEVO] {termino}: {definicion}")
@@ -56,6 +53,3 @@ if __name__ == "__main__":
     glosario_inicial()
     definicion_django()
     definicion_orm()
-
-    # El alumno debe agregar la llamada a su función aquí:
-    # agregar_definicion_alumno()
