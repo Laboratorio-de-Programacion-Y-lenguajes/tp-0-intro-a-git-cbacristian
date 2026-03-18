@@ -37,7 +37,7 @@ def glosario_inicial():
 # 3. Llámala dentro del bloque 'if __name__ == "__main__":'
 
 
-def agregar_definicion_alumno():
+def definicion_orm():
     """
     EJEMPLO: El alumno debe renombrar esta función y completar su término.
     """
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     mostrar_bienvenida()
     glosario_inicial()
     definicion_django()
-    agregar_definicion_alumno()
+    definicion_orm()
 
     # El alumno debe agregar la llamada a su función aquí:
     # agregar_definicion_alumno()
